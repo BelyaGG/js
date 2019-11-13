@@ -33,10 +33,10 @@ console.log('-------------------------------------------------------------------
 
 function gentleSum(a, b) {
     var Sum = (parseInt(a)+parseInt(b));
-    if (Sum > 0) {
-        console.log(Sum);
-    }else{
+    if (isNaN(Sum)) {
         console.log('Please enter valid data');
+    }else{
+        console.log(Sum);
     }
 }
 
