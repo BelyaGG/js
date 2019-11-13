@@ -19,7 +19,7 @@ function isPythagoreanTheorem(a, b, c) {
     if ((a*a)+(b*b) == (c*c)) {
         console.log ("true");
     }else{
-        console.log("false")
+        console.log("false");
     }
 }
 
@@ -34,9 +34,9 @@ console.log('-------------------------------------------------------------------
 function gentleSum(a, b) {
     var Sum = (parseInt(a)+parseInt(b));
     if (Sum > 0) {
-        console.log('true')
+        console.log(Sum);
     }else{
-        console.log('false')
+        console.log('Please enter valid data');
     }
 }
 
