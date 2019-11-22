@@ -1,46 +1,39 @@
-function deleteObjectValueByKey({name, age}, key) {
-    if (key in deleteObjectValueByKey == true) {
-        delete deleteObjectValueByKey.key;
-        console.log ('Ключ найден и был удален')
-    } else {
-        console.log ('Ключ не найдет ');
-    }
+function descSort(arr) {
+    arr.sort(function (a , b) {
+        return a-b;
+    })
+    alert (arr);
 }
 
-deleteObjectValueByKey ({ name: 'Pete', age: 12}, 'name');
-deleteObjectValueByKey({ name: 'Pete', age: 12}, 'asdasdasdasd');
-deleteObjectValueByKey({ name: 'Pete', age: 12}, 'asdasdasdasd');
+descSort([100, 5, -2, - 10000, 0, 53]);
 
 
-let y = 1;
-let num;
+function independentSort(arr) {
+    let sorted = arr.slice();
+    sorted.sort();
+    alert (arr);
+    alert (sorted);
+}
 
-function printAllEvenNumbers() {
-    do {
-        num = prompt ('Введите число больше 0', 0);
-    } while ( num == 0 || num == NaN || num == null);
-    for (y ; y <= num; y++) {    
-        if (y%2==0) {
-            console.log (y);
-        }
+independentSort (["HTML", "JavaScript", "CSS"]);
+
+
+function getMaxSubSum(arr) {
+    let maxSum = 0; 
+  
+    for (let i = 0; i < arr.length; i++) {
+      let sum = 0;
+      for (let j = i; j < arr.length; j++) {
+        sum += arr[j];
+        maxSum = Math.max(maxSum, sum);
+      }
     }
+    return maxSum;
   }
 
-printAllEvenNumbers ();
-
-
-let nameUser;
-let isAgeValid;
-
-function checkUser() {
-    nameUser = prompt ('Введите ваше имя');
-    isAgeValid = confirm ('Вам больше 18 ?');
-    if (isAgeValid == true ) {
-        alert ('Добро пожаловать ' + nameUser);
-    } else {
-        alert ( nameUser + ' тебе нет 18 !');
-    }
-}
-
-checkUser();
-
+console.log ( getMaxSubSum([-1, 2, 3, -9]) ) ; 
+console.log ( getMaxSubSum([-1, 2, 3, -9, 11]) ) ; 
+console.log ( getMaxSubSum([-2, -1, 1, 2]) );
+console.log ( getMaxSubSum([1, 2, 3]) ); 
+console.log ( getMaxSubSum([100, -9, 2, -3, 5]) ); 
+console.log ( getMaxSubSum([-1, -2, -3]) );
