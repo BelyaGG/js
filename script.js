@@ -1,39 +1,82 @@
-function descSort(arr) {
-    arr.sort(function (a , b) {
-        return a-b;
-    })
-    alert (arr);
+Array.prototype.max = function (){
+  return this.sort (function (a,b){
+      return a-b
+  }).pop()
 }
 
-descSort([100, 5, -2, - 10000, 0, 53]);
+console.log ([1,2,3,50,-100].max());
 
+//===================================================================
 
-function independentSort(arr) {
-    let sorted = arr.slice();
-    sorted.sort();
-    alert (arr);
-    alert (sorted);
+const array1 = [1,2,3,4];
+
+Array.prototype.arrFill = function (a,b,c){
+  this.fill(a,b,c);
+  console.log(array1);
 }
 
-independentSort (["HTML", "JavaScript", "CSS"]);
+array1.arrFill(0, 2, 4);
+array1.arrFill(5, 1);
+array1.arrFill(6);
 
+//====================================================================
 
-function getMaxSubSum(arr) {
-    let maxSum = 0; 
-  
-    for (let i = 0; i < arr.length; i++) {
-      let sum = 0;
-      for (let j = i; j < arr.length; j++) {
-        sum += arr[j];
-        maxSum = Math.max(maxSum, sum);
-      }
-    }
-    return maxSum;
+function askPassword(ok, fail) {
+  let password = prompt("Password?", '');
+  if (password == "rockstar") user.loginOk();
+  else user.loginFail();
+}
+
+let user = {
+  name: 'Вася',
+
+  loginOk() {
+    alert(`${this.name} logged in`);
+  },
+
+  loginFail() {
+    alert(`${this.name} failed to log in`);
+  },
+
+};
+
+askPassword(user.loginOk, user.loginFail);
+
+//====================================================================
+
+class Animal {
+  constructor (name) {
+      this.name = name;
+      this.paws = 4;
   }
 
-console.log ( getMaxSubSum([-1, 2, 3, -9]) ) ; 
-console.log ( getMaxSubSum([-1, 2, 3, -9, 11]) ) ; 
-console.log ( getMaxSubSum([-2, -1, 1, 2]) );
-console.log ( getMaxSubSum([1, 2, 3]) ); 
-console.log ( getMaxSubSum([100, -9, 2, -3, 5]) ); 
-console.log ( getMaxSubSum([-1, -2, -3]) );
+  greeting(){
+      console.log(`Hello, I am ${this.name} and I am an animal`)
+  }
+}
+
+class Cat extends Animal {
+  sayMeow(){
+      console.log(`I have ${this.paws} paws!`)
+  }
+}
+
+class Dog extends Animal{
+  voice(){
+      console.log('Bark!')
+  }
+}
+
+let animal = new Animal('Zebra');
+console.log(animal.name);
+animal.greeting();
+
+let cat = new Cat('Hacker');
+console.log (cat.name);
+cat.sayMeow();
+cat.greeting();
+
+let dog= new Dog('Rax');
+console.log (dog.name);
+dog.voice(); 
+dog.greeting();
