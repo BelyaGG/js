@@ -11,8 +11,7 @@ console.log ([1,2,3,50,-100].max());
 const array1 = [1,2,3,4];
 
 Array.prototype.arrFill = function (a,b,c){
-  this.fill(a,b,c);
-  console.log(array1);
+  return array1.slice()
 }
 
 array1.arrFill(0, 2, 4);
@@ -23,8 +22,8 @@ array1.arrFill(6);
 
 function askPassword(ok, fail) {
   let password = prompt("Password?", '');
-  if (password == "rockstar") user.loginOk();
-  else user.loginFail();
+  if (password == "rockstar") ok();
+  else fail();
 }
 
 let user = {
@@ -40,8 +39,7 @@ let user = {
 
 };
 
-askPassword(user.loginOk, user.loginFail);
-
+askPassword(user.loginOk.bind(user), user.loginFail.bind(user));
 //====================================================================
 
 class Animal {
